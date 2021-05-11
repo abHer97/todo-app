@@ -3,29 +3,28 @@ import { Button } from './Button';
 
 export const Footer = ({
    totalItems,
-   isActive,
+   active,
    handleClickFilter,
    handleClickClear,
    handleClickReset
 }) => {
    return (
       <div className='container flex flex-wrap justify-between items-center mt-3'>
-         <div className='text-gray-400 text-sm select-none'>{totalItems} elementos</div>
+         <div className='text-gray-400 text-sm select-none'>
+            {totalItems} elementos pendientes
+         </div>
          <div>
-            <Button
-               isActive={isActive === 'all'}
-               onClick={() => handleClickFilter('all')}
-            >
+            <Button isActive={active === 'all'} onClick={() => handleClickFilter('all')}>
                Todos
             </Button>
             <Button
-               isActive={isActive === 'active'}
+               isActive={active === 'active'}
                onClick={() => handleClickFilter('active')}
             >
                Activos
             </Button>
             <Button
-               isActive={isActive === 'complete'}
+               isActive={active === 'complete'}
                onClick={() => handleClickFilter('complete')}
             >
                Completados
